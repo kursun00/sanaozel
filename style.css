@@ -7,6 +7,7 @@ body, html {
   color: white;
   overflow-x: hidden;
   box-sizing: border-box;
+  background-color: transparent; /* Burayı şeffaf yaptım, siyah olmasın */
 }
 
 /* Arka plan GIF */
@@ -33,12 +34,14 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
+  justify-content: flex-start; /* üstten başlasın, ortada değil */
+  min-height: 100vh; /* tam ekran yüksekliği */
   padding: 20px;
+  text-align: center;
+  overflow-y: auto; /* dikey kaydırma */
 }
 
+/* Text kutuları */
 .text-box {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
@@ -48,6 +51,8 @@ body, html {
   max-width: 90%;
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
   transition: 0.3s;
+  position: relative; /* sabit değil */
+  z-index: 1;
 }
 
 /* Başlık altı çizgi */
