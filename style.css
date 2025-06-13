@@ -1,24 +1,21 @@
-* {
+/* Google Font Audiowide genel kullanımı için */
+body, html {
+  height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Audiowide', cursive, 'Segoe UI', sans-serif;
+  color: white;
+  overflow-x: hidden;
   box-sizing: border-box;
 }
 
-body, html {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  color: white;
-  overflow-x: hidden;
-}
-
-/* Video Arka Plan */
-#bgVideo {
+/* Arka plan GIF */
+#bgImage {
   position: fixed;
   top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
+  width: 100%; height: 100%;
+  background: url('background.gif') no-repeat center center/cover;
+  z-index: -3;
 }
 
 /* Karanlık + bulanık overlay */
@@ -53,6 +50,14 @@ body, html {
   transition: 0.3s;
 }
 
+/* Başlık altı çizgi */
+#senin-icin h2 {
+  text-decoration: underline;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 1.6em;
+}
+
 h1 {
   font-size: 2em;
   margin-bottom: 10px;
@@ -63,6 +68,7 @@ p.line {
   margin: 15px 0;
 }
 
+/* Buton stili */
 button {
   padding: 10px 20px;
   border: none;
@@ -93,29 +99,18 @@ button:hover {
   object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  margin: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photos img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Gizli satırlar */
 .hidden {
   display: none;
-}
-
-@media (max-width: 600px) {
-  h1 { font-size: 1.5em; }
-  p { font-size: 1em; }
-  .photos img {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-/* Yeni ek: GIF arka plan */
-#bgImage {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: url('background.gif') no-repeat center center/cover;
-  z-index: -3;
 }
 
 /* Fade-in animasyon */
@@ -128,60 +123,12 @@ button:hover {
   animation: fadeIn 1s ease forwards;
 }
 
-.photos img {
-  width: 100px;
-  height: auto;
-  margin: 10px;
-  border-radius: 15px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.photos img:hover {
-  transform: scale(1.15);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-}
-
-.senin-icin {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 20px;
-  max-width: 600px;
-  margin: 30px auto 0;
-  text-align: center;
-}
-
-.senin-icin h2 {
-  margin-bottom: 15px;
-  font-weight: 600;
-  font-size: 1.6em;
-}
-
-.senin-icin textarea {
-  width: 100%;
-  min-height: 150px;
-  border-radius: 15px;
-  border: none;
-  padding: 15px;
-  font-size: 1em;
-  resize: vertical;
-  background: rgba(0,0,0,0.3);
-  color: white;
-  outline: none;
-  box-shadow: inset 0 0 8px rgba(255,255,255,0.1);
-}
-
-.senin-icin button {
-  margin-top: 15px;
-  padding: 10px 30px;
-  border-radius: 25px;
-  border: none;
-  background: white;
-  color: black;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.senin-icin button:hover {
-  background: #ddd;
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.5em; }
+  p { font-size: 1em; }
+  .photos img {
+    width: 80px;
+    height: 80px;
+  }
 }
