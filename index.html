@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yağmur</title>
+
+  <!-- Google Fonts Audiowide -->
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Audiowide fontu genel olarak body’ye uygula */
+    body, html {
+      font-family: 'Audiowide', cursive, 'Segoe UI', sans-serif;
+    }
+
+    /* Senin için başlığı altı çizgili yap */
+    #senin-icin h2 {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Arka Plan GIF -->
+  <div id="bgImage"></div>
+
+  <!-- Ses -->
+  <audio id="rainAudio" loop>
+    <source src="rain.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- İçerik -->
+  <div class="overlay"></div>
+  <div class="content">
+
+    <div class="text-box">
+      <h1>Gözlerine bakınca...</h1>
+      <p class="line">Mavi denizlerde kayboluyor insan.</p>
+      <button id="startBtn">Devam Et</button>
+    </div>
+
+    <div id="poemLines" class="text-box hidden">
+      <p class="line hidden">Bir bakışın, geceyi sabaha çeviriyor.</p>
+      <p class="line hidden">Sessizlikte bile senin sesin var.</p>
+      <p class="line hidden">Zaman seninle ağır, ama güzel akıyor.</p>
+      <p class="line hidden">Yağmur gibi, usul usul düşüyorsun içime.</p>
+    </div>
+
+    <!-- Fotoğraflar -->
+    <div class="photos">
+      <img src="foto1.jpg" alt="foto1" />
+      <img src="foto2.jpg" alt="foto2" />
+      <img src="foto3.jpg" alt="foto3" />
+    </div>
+
+    <br>
+    <!-- Senin için Bölümü -->
+    <div class="text-box" id="senin-icin">
+      <h2>Senin için</h2>
+      <p>
+        Gözlerin yıldızlar kadar parlak,<br />
+        Kalbim her bakışında çarpar hızlı hızlı.<br />
+        Sessiz bir rüzgar gibi dokunur bana,<br />
+        Seninle her an, hayat bambaşka.
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    const startBtn = document.getElementById("startBtn");
+    const audio = document.getElementById("rainAudio");
+    const poemLines = document.querySelectorAll("#poemLines .line");
+    const poemBox = document.getElementById("poemLines");
+
+    let started = false;
+    let currentLine = 0;
+
+    startBtn.addEventListener("click", () => {
+      if (!started) {
+        audio.play();
+        poemBox.classList.remove("hidden");
+        started = true;
+      }
+      showNextLine();
+    });
+
+    function showNextLine() {
+      if (currentLine < poemLines.length) {
+        const line = poemLines[currentLine];
+        line.classList.remove("hidden");
+        line.classList.add("fade-in");
+        currentLine++;
+
+        if (currentLine === poemLines.length) {
+          setTimeout(() => (startBtn.style.display = "none"), 1000);
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
